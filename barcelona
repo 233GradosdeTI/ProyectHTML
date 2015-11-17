@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta name="barcelona" http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+	<title>Barcelona</title>
+	<link rel="stylesheet" type="text/css" href="barcelonapixeles.css">
+
+	<script type="text/javascript">
+
+	function fileSelected() {
+
+	    // obtener el elemento seleccionado
+	    var oFile = document.getElementById('image_file').files[0];
+
+	    // si no es una foto que aparezca un error
+	    var rFilter = /^(image\/bmp|image\/gif|image\/jpeg|image\/png|image\/tiff)$/i;
+
+	    if (! rFilter.test(oFile.type)) {
+	    	alert("Debe seleccionar una imagen con formato valido");
+	    	return;
+	    }
+	    // que el tamaño del fichero sea menor a 1M
+	    var iMaxFilesize = 1048576; // 1MB
+	    if (oFile.size > iMaxFilesize) {
+	    	alert("El archivo es muy grande, selecciona otro más pequeño");
+	    	return;
+	    }
+	    // get preview element
+	    var oImage = document.getElementById('preview');
+
+	    // preparar HTML5 FileReader
+	    var oReader = new FileReader();
+	    oReader.onload = function(e){
+	        // e.target.result contiene la URL que se utilizará para cargar la imagen
+	        oImage.src = e.target.result;
+	    };
+
+	    // read selected file as DataURL
+	    oReader.readAsDataURL(oFile);
+	}
+	</script>
+	<script>
+
+	window.onload=function () {
+		inicioDiv=document.getElementById("inicio");
+		finalDiv=document.getElementById("final");
+		inicioDiv.ondragstart = coger;
+		finalDiv.ondragenter = function() {return false}
+		finalDiv.ondragover = function() {return false}
+		finalDiv.ondrop = soltar;
+	}
+
+	function coger(event) { 
+		var format = "text/html" ;
+		mitexto = event.dataTransfer.getData(format);
+	} 
+	function soltar() { 
+		finalDiv.innerHTML=mitexto;
+		return false ; 
+	}
+	</script>
+</head>
+<body>
+	<div id="contenido">
+		<div id="cabecera">
+			<h1 class="titulo">Barcelona</h1>
+			<div class="img">
+				
+				<img alt="Imagen de barcelona panoramica donde se ve Plaza Espagna" src="img/Barcelonapanoramica.jpg"  title="Bienvenido a la página donde podrás conocer los puntos más relevantes de Barcelona"></div>
+				<div class="informacion">
+					<div class="oficina">Oficina de Turismo</div>
+					<div class="direccion">Països Catalans</div>
+					<div class="telefono">Tlf.: 932853834</div>
+					<div class="web">http://www.turismobarcelona.es</div>
+
+				</div>
+			</div>
+			<div id="cuerpo">	
+				<ul class="navegacion">
+					<li> <a  href="#" title="Haga click para ver qué visitar" > Qué visitar </a> </li>
+					<li> <a  href="#actividades" title="Haga click para ver las actividades que hay">Actividades</a></li>
+					<li> <a  href="#comer" title="Haga click para ver dónde comer">Dónde Comer</a></li>
+					<li> <a  href="#dormir" title="Haga click para ver dónde dormir">Dónde Dormir</a></li>
+					<li> <a  href="#horarios"  title="Haga click para ver los puntos de información turística ">Puntos de Información Turística</a></li>
+					<li> <a  href="#paseo"  title="Haga click para ver un video sobre la ciudad">Paseo por Barcelona</a></li>
+					<li> <a  href="#postal"  title="Haga click para enviar una postal">Envía una postal</a></li>
+					<li> <video id = 'audio' src="Bienvenido.mp3" controls loop></video></li>
+				</ul>
+				<div class="principal">
+					<div id="sitios" class="seccion">
+						<h2 class="titulo">Qué visitar</h2>
+						<div class="contenido">
+							<div class="sitio" >
+								<h3 class="titulo">Park Güell</h3><img alt = "Imagen del Park Güell de Barcelona panorámica" class="imagen" title="Park Güell" src="img/park-guell_1.jpg"><div class="lugar">
+
+								<p class="descripcion">El Parque Güell es un reflejo de la plenitud artística de Gaudí: pertenece a su etapa naturalista (primera década del siglo XX), periodo en que el arquitecto perfeccionó su estilo personal, a través de la inspiración en las formas orgánicas de la naturaleza, para lo que puso en práctica toda una serie de nuevas soluciones estructurales originadas en sus profundos análisis de la geometría reglada. A ello añade el artista catalán una gran libertad creativa y una imaginativa creación ornamental: partiendo de cierto barroquismo sus obras adquieren gran riqueza estructural, de formas y volúmenes desprovistos de rigidez racionalista o de cualquier premisa clásica.1 En el Parque Güell desplegó Gaudí todo su genio arquitectónico, y puso en práctica muchas de sus innovadoras soluciones estructurales que serían emblemáticas de su estilo organicista y que culminarían en la Sagrada Familia.</p>
+								<div class="obras">
+									<div class="nombre">Imágenes relacionadas</div>
+									<div class="imagenes">
+										<img src="img/park-guell_2.jpg" alt = "Imagen del Park Güell de Barcelona donde se puede ver el emblema"  title="Park Güell">
+										<img src="img/park-guell_3.jpg" alt = "Imagen del Park Güell de Barcelona donde se ve una de las torres"  title="Park Güell">
+										<img src="img/park-guell_4.jpg" alt = "Imagen del Park Güell de Barcelona la entrada"  title="Park Güell">
+										<img src="img/park-guell_5.jpg" alt = "Imagen del Park Güell de Barcelona las torres de barro"  title="Park Güell">
+										<img src="img/park-guell_6.jpg" alt = "Imagen del Park Güell de Barcelona un techo"  title="Park Güell">
+										<img src="img/park-guell_7.jpg" alt = "Imagen del Park Güell de Barcelona museo de Gaudí"  title="Park Güell">
+									</div>
+
+								</div>
+								<div class="sitio">
+									<h3 class="titulo">La Sagrada Familia</h3><img alt = "Imagen de la Sagrada Familia anocheciendo" class="imagen" src="img/SagradaFamilia.jpg"  title="La Sagrada Familia">
+									<p class="descripcion">La Sagrada Familia, es una basílica católica de Barcelona (España), diseñada por el arquitecto Antoni Gaudí. Iniciada en 1882, todavía está en construcción (marzo de 2015). Es la obra maestra de Gaudí, y el máximo exponente de la arquitectura modernista catalana. En 1926, al morir Gaudí, solo se había construido una torre. Del proyecto del edificio solo se conservaban planos y un modelo en yeso que resultó muy dañado durante la Guerra Civil.3 Sin embargo, desde entonces han proseguido las obras sin interrupción: actualmente están terminados los portales del Nacimiento y de la Pasión, y se ha iniciado el de la Gloria; se ha cubierto todo el espacio interior, y se han puesto las bases de las seis torres centrales.
+									</p>
+									<div class="obras">
+										<div class="nombre">Imágenes relacionadas</div>
+										<div class="imagenes">
+											<img src="img/sagrada_familia.jpg" alt = "Imagen de la fachada de la Sagrada Familia"  title="La Sagrada Familia">
+											<img src="img/muro_sagrada.jpg" alt = "Imagen del interior de la Sagrada Familia" title="La Sagrada Familia">
+											<img src="img/sagradafamilia4.jpg" alt = "Imagen de los asientos de la Sagrada Familia" title="La Sagrada Familia">
+											<img src="img/sagradafamilia5.jpg" alt = "Imagen de una representacion del nacimiento de la Sagrada Familia"  title="La Sagrada Familia">
+											<img src="img/sagradafamilia6.jpg" alt = "Imagen de las torres de la Sagrada Familia"  title="La Sagrada Familia">
+											<img src="img/sagrada_familia7.jpg" alt = "Imagen en el interior de la Sagrada Familia"  title="La Sagrada Familia">
+										</div>
+									</div>
+								</div>
+								<div class="sitio">
+									<h3 class="titulo">La Rambla</h3><img alt = "Imagen de La Rambla" class="imagen" src="img/rambla3.jpg"  title="La Rambla">
+									<div class="lugar">
+										<p class="descripcion"> El paseo está lleno de gente de día y hasta altas horas de la noche. Está jalonado de kioscos de prensa, flores y aves, actores callejeros, cafeterías, restaurantes y comercios. Cerca del puerto acostumbran a instalarse mercadillos, así como pintores y dibujantes. Paseando por La Rambla pueden verse varios edificios de interés, como el Palacio de la Virreina, así como el mercado de La Boquería y el famoso teatro de El Liceo (en catalán, El Liceu), en el que se representan óperas y ballets. Una de las calles laterales, de pocos metros de longitud, conduce a la Plaza Real (Plaça Reial), una plaza con palmeras y edificios con soportales que acogen multitud de cervecerías y restaurantes, y en la que se reúnen los fines de semana los coleccionistas de sellos y de monedas. </p>
+										<div class="obras">
+											<div class="nombre">Imágenes relacionadas</div>
+											<div class="imagenes" title="La Rambla">
+												<img alt = "Imagen de La Rambla con arboles" src="img/rambla1.jpg">
+												<img alt = "Imagen de una plaza de La Rambla" src="img/rambla2.jpg">
+												<img alt = "Imagen de una plaza de La Rambla con arboles" src="img/rambla4.jpg">
+												<img alt = "Imagen de La Rambla" src="img/rambla5.jpg">
+												<img alt = "Imagen de La Rambla principal" src="img/rambla6.jpg">
+												<img alt = "Dibujo de La Rambla" src="img/rambla7.jpg">
+											</div>
+										</div>
+									</div>
+									<div class="sitio">
+										<h3 class="titulo">Manzana de la Discordia</h3><img alt = "Imagen de la Manzana de la Discordia" class="imagen" src="img/manzanadiscordia2.jpg" title="La Manzana de la Discordia">
+										<p class="descripcion">La Manzana de la discordia es el nombre que recibe un tramo del Paseo de Gracia del Ensanche de Barcelona situado entre las calles de Aragón y Consejo de Ciento. Se trata de un conjunto de cinco edificios: la Casa Lleó Morera de Lluís Domènech i Montaner, la Casa Mulleras de Enric Sagnier, la Casa Bonet de Marcel·lià Coquillat, la Casa Amatller de Josep Puig i Cadafalch y la Casa Batlló de Antoni Gaudí. Si bien todas son de reconocidos arquitectos del modernismo catalán, el apelativo popular de «manzana de la discordia» se refería principalmente a la rivalidad profesional entre Domènech i Montaner, Puig i Cadafalch y Antoni Gaudí. Cuando Gaudí se encargó de la Casa Batlló ya sabía lo que habían hecho los otros dos; de hecho, la presencia del arquitecto más sorprendente de todos ellos era el elemento que provocaba este nombre. 
+										</p>
+										<div class="obras">
+											<div class="nombre">Imágenes relacionadas</div>
+											<div class="imagenes" title="Imagen de la La Manzana de la Discordia con las cuatro esquinas">
+												<img alt = "Imagen de la Pedrera de la Manzana de la Discordia" src="img/manzanadiscordia1.jpg">
+												<img alt = "Imagen de la Casa Lleó Morera de la Manzana de la Discordia" src="img/manzanadiscordia3.jpg">
+												<img alt = "Imagen de la Casa Mulleras de la Manzana de la Discordia" src="img/manzanadiscordia4.jpg">
+												<img alt = "Imagen de la Manzana de la Discordia" src="img/manzanadiscordia5.jpg">
+												<img alt = "Imagen de la Casa AtmalLer de la Manzana de la Discordia" src="img/manzanadiscordia6.jpg">
+												<img alt = "Imagen de Casa Batlo de la Manzana de la Discordia" src="img/manzanadiscordia7.jpg">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div id="actividades" class="seccion">
+								<h2 class="titulo">Actividades</h2>
+								<div class="contenido">
+									<div class="actividad">
+										<h3>Parque de Atracciones Tibidabo</h3>
+										<div class="tipoActividad"><span class="nombre">Tipo de actividad:</span><span class="valor">Parque de Atracciones</span></div>
+										<div class="lugar"><span class="nombre">Lugar:</span><span class="valor">Plaça Tibidabo, 3-4, 08035 – Barcelona</span></div>
+										<div class="fecha"><span class="nombre">Fecha:</span><span class="valor">Todos los días del año</span></div>
+										<div class="hora"><span class="nombre">Hora:</span><span class="valor">12:00 - 20:00</span></div>
+										<p class="descripcion">Durante tu visita podrás disfrutar de una amplia oferta de atracciones, desde las más emblemáticas como el Avión o la Talaia hasta las más innovadoras como el Dididado o la Montaña Rusa, de espectáculos de primera línea como el Hotel Krüeger o el Marionetarium así como de una variada oferta gastronómica y todo tipo de servicios.</p>
+
+										<iframe title = "Parque de Atracciones Tibidabo" src="https://www.youtube.com/embed/XNyI-o_FRvw"> Parque de Atracciones Tibidabo </iframe>
+									</div>
+									<div class="actividad">
+										<h3>Parque de Atracciones PortAventura</h3>
+										<div class="tipoActividad"><span class="nombre">Tipo de actividad:</span><span class="valor">Parque de Atracciones</span></div>
+										<div class="lugar"><span class="nombre">Lugar:</span><span class="valor">Costa Dorada</span></div>
+										<div class="fecha"><span class="nombre">Fecha:</span><span class="valor">Todos los días del año</span></div>
+										<div class="hora"><span class="nombre">Hora:</span><span class="valor">10:00 - 21:00</span></div>
+										<p class="descripcion">Seis mundos repletos de sorpresas te esperan dentro de PortAventura Park. En cada uno de ellos encontrarás, para tus compras, tiendas de las que llevarte un original recuerdo. Podrás disfrutar de espectáculos increíbles, repletos de color, fantasía, música, baile... y, por supuesto, de las mejores atracciones.
+										</p>
+										<iframe title = "Parque de Atracciones PortAventura" src="https://www.youtube.com/embed/Y8TCFgPMGmA"> Parque de Atracciones PortAventura </iframe>					
+									</div>
+								</div>
+							</div>
+							<div id="comer" class="seccion">
+								<h2 class="titulo">Dónde Comer</h2>
+								<div class="contenido">
+									<h3>GIARDINETTO</h3>
+									<div class="precio"><span class="nombre">Precio</span><span class="valor">20 - 40€</span></div>
+									<div class="lugar"><span class="nombre">Lugar:</span><span class="valor">La Granada del Penedès, 22</span></div>
+									<div class="fecha"><span class="nombre">Horario:</span><span class="valor">13.30-16 / 21-1.30 h. Viernes y sábado, 21-2 h</span></div>
+									<div class="hora"><span class="nombre">Teléfono:</span><span class="valor">934 159 856</span></div>
+									<h3>Restaurante Macondo</h3>
+									<div class="precio"><span class="nombre">Precio</span><span class="valor">Entre 30-45 Euros. (Precio medio 35 €)</span></div>
+									<div class="lugar"><span class="nombre">Lugar:</span><span class="valor">Carrer de Còrsega, 206 (Barcelona). Entre Muntaner y Casanova.</span></div>
+									<div class="fecha"><span class="nombre">Horario:</span><span class="valor">De lunes a sábado de 13-16h y de 20-23h. Domingo de 13-16h. Cerrado: Domingo noche.</span></div>
+									<div class="hora"><span class="nombre">Teléfono:</span><span class="valor">933 300 303</span></div>
+
+								</div>
+							</div>
+							<div id="dormir" class="seccion">
+								<h2 class="titulo">Dónde Dormir</h2>
+								<div class="contenido">
+									<div class="alojamiento">
+										<h3>Alojamiento en albergues</h3>
+										<h4>360 HOSTEL BARCELONA</h4>
+										<div class="direccion"><span class="nombre">Dirección:</span><span class="valor">Bailèn, 7 | C.P.: 08010 | Población: Barcelona</span></div>		
+										<div class="telefono"><span class="nombre">Teléfono:</span><span class="valor">932 469 973 </span></div>
+										<div class="email"><span class="nombre">E-mail:</span><span class="valor">barcelona@360hostel.com</span></div>
+										<p class="descripcion">Para los que prefieren un alojamiento más económico, os ofrecemos una lista de albergues que podréis encontrar en Barcelona. La mayoría de estos albergues están ubicados cerca del casco antiguo de la ciudad. No es necesario el carnet de alberguista.</p>
+
+									</div>
+									<div class="alojamiento">
+										<h3>Alojamiento en apartamentos</h3>
+										<h4>ACOMODIS</h4>
+										<div class="direccion"><span class="nombre">Dirección:</span><span class="valor">Av. Madrid, 191, esc. B ent. 3r | C.P.: 08014 | </span></div>		
+										<div class="telefono"><span class="nombre">Teléfono:</span><span class="valor">620 665 962</span></div>
+										<div class="email"><span class="nombre">E-mail:</span><span class="valor">ecasanas@holadaysbarcelona.com</span></div>
+										<p class="descripcion">Barcelona cuenta con una buena oferta de apartamentos de alquiler donde prodréis residir con todas las comodidades de un buen alojamiento. Os ofrecemos un listado de apartamentos turísticos para que podáis alquilar en Barcelona, por días o por semanas</p>
+
+									</div>
+									<div class="alojamiento">
+										<h3>Alojamiento en campings</h3>
+										<h4>CAMPING AIDAMAR</h4>
+										<div class="direccion"><span class="nombre">Dirección:</span><span class="valor">Camí Pomareda, s/n | C.P.: 08380 | Población: Malgrat de Mar</span></div>		
+										<div class="telefono"><span class="nombre">Teléfono:</span><span class="valor">937 653 173</span></div>
+										<div class="email"><span class="nombre">Página web:</span><span class="valor"><a  href="http://www.campings.net/camping-aidamar-en-malgrat-de-mar.htm">http://www.campings.net/camping-aidamar-en-malgrat-de-mar.htm</a></span></div>
+										<p class="descripcion">Si buscáis instalaros en un camping, cerca de Barcelona encontraréis alojamiento en algunas instalaciones en zonas cercanas de interés natural o de la playa.</p>
+
+									</div>
+									<div class="alojamiento">
+										<h3>Alojamiento en hoteles</h3>
+										<h4>Hotel Barcelona Princess </h4>
+										<div class="direccion"><span class="nombre">Dirección:</span><span class="valor"> Avinguda Diagonal, 1, 08019</span></div>		
+										<div class="telefono"><span class="nombre">Teléfono:</span><span class="valor">933 56 10 00</span></div>
+										<div class="email"><span class="nombre">Página web:</span><span class="valor"><a  href="http://www.hotelbarcelonaprincess.com/">http://www.hotelbarcelonaprincess.com/</a></span></div>
+										<p class="descripcion">Si lo que buscas es descansar y pasar unos días con todo el confort, este hotel ofrece al visitante un sinfín de posibilidades para disfrutar sin limites de sus vacaciones.</p>
+									</div>
+
+								</div>
+							</div>
+							<div id="horarios" class="seccion">
+								<h2 class="titulo">Puntos de Información Turística</h2>
+								<div class="contenido">
+									<h3>Call Center</h3>
+									<div class="precio"><span class="nombre">Precio</span><span class="valor">Entre 30-45 Euros. (Precio medio 35 €)</span></div>
+									<div class="lugar"><span class="nombre">Lugar:</span><span class="valor">Carrer de Còrsega, 206 (Barcelona). Entre Muntaner y Casanova.</span></div>
+									<div class="fecha"><span class="nombre">Horario:</span><span class="valor">Diario, de 8 a 20h. | Cerrado: 1 de enero y 25 de diciembre. | 26 de diciembre y 6 de enero: de 8 a 14h</span></div>
+									<div class="hora"><span class="nombre">Teléfono:</span><span class="valor">932 853 834</span></div>
+									<p class="descripcion">Servicio personalizado de información turística de Barcelona por teléfono, fax, correo y e-mail en diversos idiomas. </p>
+									<h3>Plaça de Catalunya</h3>
+									<div class="precio"><span class="nombre">Precio</span><span class="valor">Entre 30-45 Euros. (Precio medio 35 €)</span></div>
+									<div class="lugar"><span class="nombre">Lugar:</span><span class="valor">Plaça de Catalunya, 17-S</span></div>
+									<div class="fecha"><span class="nombre">Horario:</span><span class="valor">Diario, de 8 a 21h.</span></div>
+									<div class="hora"><span class="nombre">Teléfono:</span><span class="valor">932 853 834</span></div>
+									<p class="descripcion">Situada en el centro neurálgico de la ciudad, esta oficina dispone de 700 m2 destinados a la información turística y cultural en diferentes idiomas. También ofrece servicios como reserva hotelera de última hora y venta de productos turísticos.</p>
+									<h3>Otras Oficinas</h3>
+									<ul>
+										<li>Plaça Sant Jaume</li>
+										<li>Estació de Sants</li>
+										<li>Aeropuerto Terminals 1 y 2</li>
+										<li>Oficina Catedral</li>
+										<li>Mirador de Colom</li>
+										<li>Oficina Triangle</li>
+										<li>Cabines d'informació turística</li>
+										<li>Terminals de creuers</li>
+									</ul>
+								</div>
+							</div>
+
+							<div id="paseo" class="seccion">
+								<h2 class="titulo">Paseo por Barcelona</h2>
+								<div class="contenido">
+									<iframe title="Paseo por Barcelona"  src="https://www.youtube.com/embed/W8lRcc--FnY">Paseo por Barcelona</iframe>
+								</div>
+							</div>
+
+							<div id="postal" class="seccion">
+								<h2 class="titulo">Envía una postal</h2>	
+								<div class="form">	
+
+									<form action="#postal">
+										<div class="formulario">
+											<div class= "apartado">
+												<div class="voki">
+													<object height="267" width="200" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0" id="widget_name"><param name="movie" value="http://vhss-d.oddcast.com/vhss_editors/voki_player.swf?doc=http://vhss-d.oddcast.com/php/vhss_editors/getvoki/chsm=2f8b9ebeff30aa95d3abf79186990451%26sc=11275656" /><param name="quality" value="high" /><param name="allowScriptAccess" value="always" /><param name="width" value="200" /><param name="height" value="267" /><param name="allowNetworking" value="all"/><param name="wmode" value="transparent" /><param name="allowFullScreen" value="true" />
+														<embed height="267" width="200" src="http://vhss-d.oddcast.com/vhss_editors/voki_player.swf?doc=http%3A%2F%2Fvhss-d.oddcast.com%2Fphp%2Fvhss_editors%2Fgetvoki%2Fchsm=2f8b9ebeff30aa95d3abf79186990451%26sc=11275656" quality="high" allowScriptAccess="always" allowNetworking="all" wmode="transparent" allowFullScreen="true" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" name="widget_name">
+															<noembed>
+																<img alt = "imgagen del voki de ayuda" src="http://vhss-d.oddcast.com/vhss_editors/voki_player.swf?doc=http%3A%2F%2Fvhss-d.oddcast.com%2Fphp%2Fvhss_editors%2Fgetvoki%2Fchsm=2f8b9ebeff30aa95d3abf79186990451%26sc=11275656">
+															</noembed> 
+														</embed>
+													</object>
+												</div>
+
+												<div class="datos">
+													<div class="etiqueta" >Nombre:(*)</div> <input type="text" name="fname"  title="Escriba aquí su nombre">
+													<div class="etiqueta">Email:(*)</div><input type="email" name="user_email"  title="Escriba aquí su Email" required>
+													<div class="etiqueta">Pa&iacute;s:(*)</div><input type="text"  title="Escriba aquí su país">
+													<div class="etiqueta">Descripci&oacute;n:(*)</div><textarea rows ="10" cols="50"  title="Escriba aquí una descripción de la imagen"></textarea>
+												</div>
+
+
+											</div>
+
+											<div><h3> Selecciona una imagen de tu ordenador o arrastra alguna de las imagenes</h3></div>
+											<h4>Aquí puedes seleccionar una imagen de tu ordenador:</h4>
+											<div class="etiqueta"><input type="file" name="image_file"  title="Haga click para cargar una imagen" id="image_file" onchange="fileSelected();"/></div>
+											<div id="upload_response"></div>
+											<img alt = "Aquí se visualizará la imagen elegida" id="preview" src =""/>
+											<h4>O si lo prefieres, puedes arrastrar una de las imágenes:</h4>
+
+											<div id="inicio" class="imagenes">
+												<img alt = "Imagen de la Park Güell primera" src="img/park-guell_1.jpg">
+												<img alt = "Imagen de la Park Güell segunda" src="img/park-guell_2.jpg"  title="Park Güell">
+												<img alt = "Imagen de la Park Güell tercera" src="img/park-guell_3.jpg"  title="Park Güell">
+												<img alt = "Imagen de la Park Güell cuarta" src="img/park-guell_4.jpg"  title="Park Güell">
+												<img alt = "Imagen de la Park Güell quinta" src="img/park-guell_5.jpg"  title="Park Güell">
+												<img alt = "Imagen de la Park Güell sexta" src="img/park-guell_6.jpg"  title="Park Güell">
+												<img alt = "Imagen de la Park Güell septima" src="img/park-guell_7.jpg"  title="Park Güell">
+												<img alt = "Imagen de la Sagrada Familia primera" src="img/SagradaFamilia.jpg"  title="La Sagrada Familia">
+												<img alt = "Imagen de la Sagrada Familia segunda" src="img/sagrada_familia.jpg"  title="La Sagrada Familia">
+												<img alt = "Imagen de la Sagrada Familia tercera" src="img/muro_sagrada.jpg"  title="La Sagrada Familia">
+												<img alt = "Imagen de la Sagrada Familia cuarta" src="img/sagradafamilia6.jpg"  title="La Sagrada Familia">
+												<img alt = "Imagen de la La Rambla primera" src="img/rambla1.jpg"  title="La Rambla">
+												<img alt = "Imagen de la La Rambla segunda" src="img/rambla2.jpg">
+												<img alt = "Imagen de la La Rambla tercera" src="img/rambla3.jpg">
+												<img alt = "Imagen de la La Rambla cuarta" src="img/rambla4.jpg">
+												<img alt = "Imagen de la La Rambla quinta " src="img/rambla5.jpg">
+												<img alt = "Imagen de la La Rambla sexta" src="img/rambla6.jpg">
+												<img alt = "Imagen de la La Rambla obtava" src="img/rambla7.jpg">
+												<img alt = "Imagen de la Manzana de la Discordia primera" src="img/manzanadiscordia2.jpg"  title="La Manzana de la Discordia">
+												<img alt = "Imagen de la Manzana de la Discordia segunda" src="img/manzanadiscordia1.jpg">
+												<img alt = "Imagen de la Manzana de la Discordia tercera" src="img/manzanadiscordia3.jpg">
+												<img alt = "Imagen de la Manzana de la Discordia cuarta" src="img/manzanadiscordia5.jpg">
+												<img alt = "Imagen de la Manzana de la Discordia quinta" src="img/manzanadiscordia6.jpg">
+												<img alt = "Imagen de la Manzana de la Discordia sexta" src="img/manzanadiscordia7.jpg">
+											</div>
+
+
+											<p>Desliza hasta aquí la imagen:</p>
+											<div id="final" >
+												<textarea rows ="10" cols="90"  title="Aquí aparece la imagen que se enviará"></textarea></div>
+												<input type="submit" value="Enviar" title="Haga click para enviar los datos">
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+						<a href="http://www.w3.org/WAI/WCAG1AA-Conformance" title="Explicación del Nivel Doble-A de Conformidad">
+							<img height="32" width="88" src="http://www.w3.org/WAI/wcag1AA" alt="Icono de conformidad con el Nivel Doble-A,  de las Directrices de Accesibilidad para el Contenido Web 1.0 del W3C-WAI">
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	</html>
